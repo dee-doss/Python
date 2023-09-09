@@ -168,7 +168,7 @@ def document_loader():
     textChunk = CharacterTextSplitter(chunk_size=250)
     texts = textChunk.split_documents(document)
     len(texts)
-    myopenkey  = "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"
+    myopenkey  = "#your api key"
     from langchain.embeddings import OpenAIEmbeddings
     myembedmodel = OpenAIEmbeddings(openai_api_key=myopenkey)
     from langchain.vectorstores import Pinecone
@@ -243,7 +243,7 @@ def videoDownload():
         list_box.delete(0, 'end')
 
         # Create API Object
-        api = Api(api_key='AIzaSyDSn9HX5SHGsiyNl_bFDtP1cHaSaI1h1h4')
+        api = Api(api_key='#your api key')
 
         if "youtube" in playlistId.get():
             playlist_id = playlistId.get()[len(
@@ -494,9 +494,9 @@ def message():
             self.root = root
             self.root.title("SMS Sender")
 
-            self.account_sid = "AC2ad5c57917485651904bae4ad6e8e04e"
-            self.auth_token = "efe83485fb61bac736982da0c038c0f1"
-            self.twilio_phone_number = "+18506128792"
+            self.account_sid = "#your SID"
+            self.auth_token = "#YOUR TOKEN"
+            self.twilio_phone_number = " #ENTER_PHONE_NO. "
 
             self.label_to = tk.Label(root, text="To:")
             self.label_to.pack()
@@ -734,7 +734,7 @@ def create_drawing_app():
 def launch_instance():
     launch = boto3.client('ec2',region_name='ap-south-1')
     launch.run_instances(
-        ImageId='ami-0da59f1af71ea4ad2',
+        ImageId='#YOUR IMAGE ID',
         InstanceType='t2.micro',
         MaxCount=1,
         MinCount=1
@@ -745,7 +745,7 @@ def launch_instance():
 def create_bucket():
     bucket = boto3.client('s3',region_name='ap-south-1')
     bucket.create_bucket(
-    Bucket='jaspreetbhagat1234567890',
+    Bucket='#UNIQUE BUCKET NAME',
     ACL='private',
     CreateBucketConfiguration={
           'LocationConstraint': 'ap-south-1'}
