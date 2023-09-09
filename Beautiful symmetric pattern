@@ -1,0 +1,21 @@
+#Python code for creating a beautiful symmetric pattern image
+import numpy as np
+import matplotlib.pyplot as plt
+width, height = 100, 100
+canvas = np.zeros((height, width, 3), dtype=np.uint8)
+x, y = np.meshgrid(np.linspace(-1, 1, width), np.linspace(-1, 1, height))
+distance = np.sqrt(x * 2 + y * 2)
+angle = np.arctan2(y, x)
+
+red_channel = (np.sin(2 * np.pi * distance) + 1) * 127
+green_channel = (np.cos(4 * np.pi * distance) + 1) * 127
+blue_channel = (np.sin(8 * np.pi * angle) + 1) * 127
+
+
+canvas[:, :, 0] = red_channel.astype(np.uint8)
+canvas[:, :, 1] = green_channel.astype(np.uint8)
+canvas[:, :, 2] = blue_channel.astype(np.uint8)
+
+plt.imshow(canvas)
+plt.axis('off')
+plt.show()
